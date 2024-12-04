@@ -1,0 +1,30 @@
+﻿@model List<Participant>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Secret Santa - Results</title>
+</head>
+<body>
+    <h1>Secret Santa - Results</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Participant</th>
+                <th>Assigned To</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var participant in Model)
+            {
+                <tr>
+                    <td>@participant.Name</td>
+                    <td>@participant.AssignedTo</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <a href="/SecretSanta/Index">Play Again</a>
+</body>
+</html>

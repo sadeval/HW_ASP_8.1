@@ -1,0 +1,32 @@
+﻿@model List<Participant>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Secret Santa</title>
+</head>
+<body>
+    <h1>Secret Santa</h1>
+
+    <form method="post" asp-action="AddParticipant">
+        <label>Add Participant:</label>
+        <input type="text" name="name" required />
+        <button type="submit">Add</button>
+    </form>
+
+    <h2>Participants</h2>
+    <ul>
+        @foreach (var participant in Model)
+        {
+            <li>@participant.Name</li>
+        }
+    </ul>
+
+    @if (Model.Count > 1)
+    {
+        <form method="post" asp-action="ShuffleParticipants">
+            <button type="submit">Start Draw</button>
+        </form>
+    }
+</body>
+</html>
